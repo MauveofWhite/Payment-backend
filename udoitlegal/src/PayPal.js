@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PayPalBtn from './PayPalBtn'
 
-const ipaddr = require('../IP_ADDRESS.json').ipAddress;
+const ipaddr = require('./IP_ADDRESS.json').ipAddress;
 
 export default class PayPal extends Component {
 

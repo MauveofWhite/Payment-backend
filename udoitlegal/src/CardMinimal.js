@@ -3,7 +3,7 @@ import {loadStripe} from '@stripe/stripe-js';
 import {CardElement, Elements, ElementsConsumer} from '@stripe/react-stripe-js';
 import './Card.css';
 
-const ipaddr = require('../IP_ADDRESS.json').ipAddress;
+const ipaddr = require('./IP_ADDRESS.json').ipAddress;
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
