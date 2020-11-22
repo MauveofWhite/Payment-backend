@@ -40,7 +40,8 @@ app.get('/create-checkout-session', async (req, res) => {
   });
 
   res.json({ id: session.id });
-  console.log(res);
+  console.log('STATUS: ' + res.statusCode);
+  console.log('HEADERS: ' + JSON.stringify(res.headers));
 });
 
 // paypal payment
