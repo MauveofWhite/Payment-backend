@@ -35,7 +35,7 @@ app.get('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'https://example.com/success',
+    success_url: 'https://localhost:3000',
     cancel_url: 'https://example.com/cancel',
   });
 
