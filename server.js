@@ -103,7 +103,7 @@ app.get('/process', function(req, res){
   });
 });
 
-const port = process.env.port || 4242
+const port = process.env.port || 8080
 
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
