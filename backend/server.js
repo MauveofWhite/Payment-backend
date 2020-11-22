@@ -40,6 +40,7 @@ app.post('/create-checkout-session', async (req, res) => {
   });
 
   res.json({ id: session.id });
+  console.log(res);
 });
 
 // paypal payment
@@ -101,6 +102,8 @@ app.get('/process', function(req, res){
           }
       }
   });
+
+  
 });
 
 const port = process.env.port || 8080
