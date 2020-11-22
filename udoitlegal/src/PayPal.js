@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import PayPalBtn from './PayPalBtn'
 
+const ipaddr = require('../IP_ADDRESS.json').ipAddress;
+
 export default class PayPal extends Component {
+
     paymentHandler = (details, data) => {
         /** Here you can call your backend API
             endpoint and update the database */
 
         console.log(details, data);
 
-        return fetch('http://localhost:4242/create', { method: 'GET' });
+        return fetch('http://' + ipaddr + '/create', { method: 'GET' });
 
         
     }

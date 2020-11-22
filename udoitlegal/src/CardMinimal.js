@@ -3,6 +3,8 @@ import {loadStripe} from '@stripe/stripe-js';
 import {CardElement, Elements, ElementsConsumer} from '@stripe/react-stripe-js';
 import './Card.css';
 
+const ipaddr = require('../IP_ADDRESS.json').ipAddress;
+
 const CARD_OPTIONS = {
   iconStyle: 'solid',
   style: {
@@ -65,7 +67,8 @@ const handleClick = async (event) => {
   const stripe = await stripePromise;
 
   // Call your backend to create the Checkout Session
-  const response = await fetch('http://localhost:4242/create-checkout-session', { method: 'POST' });
+  const response = await fetch('http://' + ipaddr + '/create-checkout-session', { method: 'GET' });
+  console.log(response);
 
   const session = await response.json();
 
@@ -80,6 +83,8 @@ const handleClick = async (event) => {
     // using `result.error.message`.
     console.log(result.error);
   }
+
+  
 };
 
 const SubmitButton = ({processing, error, children, disabled}) => (
