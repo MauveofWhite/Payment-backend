@@ -288,6 +288,7 @@ import "./Card.css";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe("pk_test_51I3BFMI3ZT5zMzrz9Y8pCJC67N5wiTAL4iUzAvE1aIPKS1EI5hXNX6r9UJkc0Zrmd3u9FxciB6UANe3ekoysqrRh00wdds2BOB");
+const ipaddr = require('./IP_ADDRESS.json').ipAddress;
 
 const ProductDisplay = ({ handleClick }) => (
   <section>
@@ -334,7 +335,7 @@ export default function CardMinimal() {
   const handleClick = async (event) => {
     const stripe = await stripePromise;
 
-    const response = await fetch("http://localhost:4242/create-checkout-session", {
+    const response = await fetch('http://' + ipaddr + '/create-checkout-session', {
       method: "POST",
     });
 
