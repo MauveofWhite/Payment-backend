@@ -7,7 +7,7 @@ import PayPal from './PayPal'
 function App() {
   return (
     <div>
-      {/* <PayPal /> */}
+      <PayPal />
       <Card />
     </div>
   );
