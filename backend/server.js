@@ -4,7 +4,7 @@ const app = express();
 // Set your secret key. Remember to switch to your live secret key in production!
 // See your keys here: https://dashboard.stripe.com/account/apikeys
 // ** TODO **
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')('sk_test_51I3BFMI3ZT5zMzrzoXcz2Yn7pA1jppyLkYJqZFekuZrFpUAoBCmrokZwFl9s5G12A9QuePQkOJtMpIXPUSzOwZmi00WfPXwlv2');
 const paypal = require('paypal-rest-sdk');
 
 // configure paypal with the credentials you got when you created your paypal app
@@ -18,8 +18,34 @@ app.get('/', (req, res) => {
   res.send("Welcome to the homepage!");
 });
 
+// // stripe endpoints
+// app.get('/create-checkout-session', async (req, res) => {
+//   const session = await stripe.checkout.sessions.create({
+//     payment_method_types: ['card'],
+//     line_items: [
+//       {
+//         price_data: {
+//           currency: 'usd',
+//           product_data: {
+//             name: 'T-shirt',
+//           },
+//           unit_amount: 2000,
+//         },
+//         quantity: 1,
+//       },
+//     ],
+//     mode: 'payment',
+//     success_url: 'https://localhost:3000',
+//     cancel_url: 'https://example.com/cancel',
+//   });
+
+//   res.json({ id: session.id });
+//   console.log('STATUS: ' + res.statusCode);
+//   console.log('HEADERS: ' + JSON.stringify(res.headers));
+// });
+
 // stripe endpoints
-app.get('/create-checkout-session', async (req, res) => {
+app.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [
@@ -35,13 +61,11 @@ app.get('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'https://localhost:3000',
-    cancel_url: 'https://example.com/cancel',
+    success_url: 'https://www.google.com/',
+    cancel_url: 'https://www.youtube.com/',
   });
 
   res.json({ id: session.id });
-  console.log('STATUS: ' + res.statusCode);
-  console.log('HEADERS: ' + JSON.stringify(res.headers));
 });
 
 // paypal payment
