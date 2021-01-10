@@ -10,9 +10,16 @@ const paypal = require('paypal-rest-sdk');
 // configure paypal with the credentials you got when you created your paypal app
 paypal.configure({
   'mode': 'sandbox', //sandbox or live 
-  'client_id': 'YOUR_CLIENT_ID_HERE', // please provide your client id here 
-  'client_secret': 'YOUR_CLIENT_SECRET_HERE' // provide your client secret here 
+  'client_id': 'AegSgdg-jtUPQvGr-iRxjLVG5AJjFg05N2swcmbXRoTaQAmKUFeU-HiGsK-rOXsjnzTkC0s6t-Rud2xJ', // please provide your client id here 
+  'client_secret': 'ENkmQkBYFJOlmGzBTRWxW_10gQGx_BGZ-BIGHvbq8LPl9QvkMNIY5FZj8qRLf0-qoWrg4imQ7G2HpA53' // provide your client secret here 
 });
+
+// OAUTH COMMAND
+// curl -v https://api-m.sandbox.paypal.com/v1/oauth2/token \
+//   -H "Accept: application/json" \
+//   -H "Accept-Language: en_US" \
+//   -u "AegSgdg-jtUPQvGr-iRxjLVG5AJjFg05N2swcmbXRoTaQAmKUFeU-HiGsK-rOXsjnzTkC0s6t-Rud2xJ:ENkmQkBYFJOlmGzBTRWxW_10gQGx_BGZ-BIGHvbq8LPl9QvkMNIY5FZj8qRLf0-qoWrg4imQ7G2HpA53" \
+//   -d "grant_type=client_credentials"
 
 app.get('/', (req, res) => {
   res.send("Welcome to the homepage!");
